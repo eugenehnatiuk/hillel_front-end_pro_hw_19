@@ -5,7 +5,7 @@ function createBtn(amount) {
   for (let i = 1; i <= amount; i++) {
     const btn = document.createElement('button');
     btn.classList.add('btns__btn');
-    btn.textContent = `${i}`;
+    btn.textContent = i;
     btnsArray.push(btn);
     btns.appendChild(btn);
   }

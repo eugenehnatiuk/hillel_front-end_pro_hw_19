@@ -1,11 +1,11 @@
 'use strict';
 
-import { createBtn } from './btns_module.js';
+import { createBtn } from './btns_generator.js';
 
 const btnsArray = createBtn(10);
 
-const EVEN_PROMISE_ARRAY = [];
-const ODD_PROMISE_ARRAY = [];
+const evenPromiseArrey = [];
+const oddPromiseArrey = [];
 
 btnsArray.forEach((btn) => {
   const isEven = +btn.textContent % 2 === 0;
@@ -17,24 +17,24 @@ btnsArray.forEach((btn) => {
     };
   });
   if (isEven) {
-    EVEN_PROMISE_ARRAY.push(promise);
+    evenPromiseArrey.push(promise);
   } else {
-    ODD_PROMISE_ARRAY.push(promise);
+    oddPromiseArrey.push(promise);
   }
 });
 
-const EVEN_PROMISES = Promise.all(EVEN_PROMISE_ARRAY).then(() =>
+const evenPromises = Promise.all(evenPromiseArrey).then(() =>
   setTimeout(() => {
     alert('ALL EVEN BTNS HAVE BEEN PUSHED');
   }, 100)
 );
-const ODD_PROMISES = Promise.all(ODD_PROMISE_ARRAY).then(() =>
+const oddPromises = Promise.all(oddPromiseArrey).then(() =>
   setTimeout(() => {
     alert('ALL ODD BTNS HAVE BEEN PUSHED');
   }, 100)
 );
 
-Promise.all([EVEN_PROMISES, ODD_PROMISES]).then(() =>
+Promise.all([evenPromises, oddPromises]).then(() =>
   setTimeout(() => {
     alert('ALL BTNS HAVE BEEN PUSHED');
   }, 100)
